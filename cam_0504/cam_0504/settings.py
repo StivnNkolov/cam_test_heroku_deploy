@@ -73,13 +73,24 @@ WSGI_APPLICATION = 'cam_0504.wsgi.application'
 # }
 
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'cam_db',
+#         'USER': 'postgres',
+#         'PASSWORD': '1123QwER',
+#         'HOST': 'localhost',
+#         'PORT': '5432',
+#     }
+# }
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'cam_db',
-        'USER': 'postgres',
-        'PASSWORD': '1123QwER',
-        'HOST': 'localhost',
+        'NAME': 'dsa96g1g045v3',
+        'USER': 'kvmsuqctbhflba',
+        'PASSWORD': '8744fb4a8ae839f1196661c92780c73a97e99fdf2e3a0a1762bbfc1435731eef',
+        'HOST': 'ec2-52-30-67-143.eu-west-1.compute.amazonaws.com',
         'PORT': '5432',
     }
 }
