@@ -1,0 +1,12 @@
+{% extends 'base/base.html' %}
+{% block start %}
+    <h1>Increase price</h1>
+{#        <h3>Raw price is: {{   }}</h3>#}
+    <div>
+        <form action="{% url 'recipe increase price percentage' object.id %}" method="POST">
+            {% csrf_token %}
+            {{ form }}
+            <input type="submit">
+        </form>
+    </div>
+{% endblock %}

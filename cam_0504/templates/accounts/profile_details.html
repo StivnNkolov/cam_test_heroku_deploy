@@ -1,0 +1,132 @@
+{#{% extends 'base/base.html' %}#}
+{#{% block start %}#}
+{#    <div>#}
+{#        <ul>#}
+{#            <li>First Name: {{ object.first_name }}</li>#}
+{#            <li>Last Name: {{ object.last_name }}</li>#}
+{#            <li>Age: {{ object.age }}</li>#}
+{#            <li>City: {{ object.city_name }}</li>#}
+{#            <li>Email: {{ object.email }}</li>#}
+{#            <li>Restaurant: {{ object.restaurant_name }}</li>#}
+{#        </ul>#}
+{#    </div>#}
+{##}
+{#    <a href="{% url 'profile edit' request.user.id %}">Edit Profile</a>#}
+{#    <a href="{% url 'change password' request.user.id %}">Change Password</a>#}
+{#    <a href="{% url 'profile delete' request.user.id %}">Delete Profile</a>#}
+{#    <div class="container">#}
+{#        <div class="row justify-content-center">#}
+{#            <div class="d-flex">#}
+{#                <div class="d-inline p-2 w-50">#}
+{#                    <div class="d-flex flex-column">#}
+{#                        <h5><u>Name:</u> {{ object.first_name }} {{ object.last_name }}</h5>#}
+{#                        <!-- If Date of Birth -->#}
+{#                        {% if object.age %}#}
+{#                            <h5><u>Age:</u> {{ object.age }}</h5>#}
+{#                        {% endif %}#}
+{#                        <!-- If Email -->#}
+{#                        {% if object.city_name %}#}
+{#                            <h5><u>City name:</u> {{ object.city_name }}</h5>#}
+{#                        {% endif %}#}
+{#                        <!-- If Gender is Chosen -->#}
+{#                        {% if object.email %}#}
+{#                            <h5><u>Email:</u> {{ object.email }}</h5>#}
+{#                        {% endif %}#}
+{#                        <!-- If Description -->#}
+{#                        {% if object.restaurant_name %}#}
+{#                            <h5><u>Restaurant name:</u> {{ object.restaurant_name }}</h5>#}
+{#                        {% endif %}#}
+{#                    </div>#}
+{#                    <p class="mt-2">Total Products: </p>#}
+{#                    <p class="mt-2">Total Recipes: </p>#}
+{#                    <a href="{% url 'profile edit' request.user.id %}" class="btn btn-primary">Edit</a>#}
+{#                    <a href="{% url 'change password' request.user.id %}" class="btn btn-primary">Change Password</a>#}
+{#                    <a href="{% url 'profile delete' request.user.id %}" class="btn btn-danger">Delete</a>#}
+{#                </div>#}
+{#            </div>#}
+{#        </div>#}
+{#    </div>#}
+{##}
+{#{% endblock %}#}
+
+
+{#<div class="container">#}
+{#    <div class="row justify-content-center">#}
+{#        <div class="d-flex">#}
+{#            <div class="d-inline p-2 w-50">#}
+{#                <div class="d-flex flex-column">#}
+{#                    <h5><u>Name:</u> {{ object.first_name }} {{ object.last_name }}</h5>#}
+{#                    <!-- If Date of Birth -->#}
+{#                    {% if object.age %}#}
+{#                        <h5><u>Age:</u> {{ object.age }}</h5>#}
+{#                    {% endif %}#}
+{#                    <!-- If Email -->#}
+{#                    {% if object.city_name %}#}
+{#                        <h5><u>City name:</u> {{ object.city_name }}</h5>#}
+{#                    {% endif %}#}
+{#                    <!-- If Gender is Chosen -->#}
+{#                    {% if object.email %}#}
+{#                        <h5><u>Email:</u> {{ object.email }}</h5>#}
+{#                    {% endif %}#}
+{#                    <!-- If Description -->#}
+{#                    {% if object.restaurant_name %}#}
+{#                        <h5><u>Restaurant name:</u> {{ object.restaurant_name }}</h5>#}
+{#                    {% endif %}#}
+{#                </div>#}
+{#                <p class="mt-2">Total Products: </p>#}
+{#                <p class="mt-2">Total Recipes: </p>#}
+{#                <a href="{% url 'profile edit' request.user.id %}" class="btn btn-primary">Edit</a>#}
+{#                <a href="{% url 'change password' request.user.id %}" class="btn btn-primary">Change Password</a>#}
+{#                <a href="{% url 'profile delete' request.user.id %}" class="btn btn-danger">Delete</a>#}
+{#            </div>#}
+{#        </div>#}
+{#    </div>#}
+{#</div>#}
+
+{% extends 'base/base.html' %}
+{% block start %}
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div class="col-md">
+                    <div class="card text-center text-black  mb-3" id="">
+                        <div class="card-header">
+                            <h1 class="card-title">Profile info</h1>
+                        </div>
+                        <div class="card-body">
+                            <div class="d-flex flex-column">
+                                {% if object.first_name and object.last_name %}
+                                    <h5><u>Name:</u> {{ object.first_name }} {{ object.last_name }}</h5>
+                                {% endif %}
+                                <!-- If Date of Birth -->
+                                {% if object.age %}
+                                    <h5><u>Age:</u> {{ object.age }}</h5>
+                                {% endif %}
+                                <!-- If Email -->
+                                {% if object.city_name %}
+                                    <h5><u>City name:</u> {{ object.city_name }}</h5>
+                                {% endif %}
+                                <!-- If Gender is Chosen -->
+                                {% if object.email %}
+                                    <h5><u>Email:</u> {{ object.email }}</h5>
+                                {% endif %}
+                                <!-- If Description -->
+                                {% if object.restaurant_name %}
+                                    <h5><u>Restaurant name:</u> {{ object.restaurant_name }}</h5>
+                                {% endif %}
+                            </div>
+                            <p class="mt-2">Total Products: {{ ingredients_count }}</p>
+                            <p class="mt-2">Total Recipes: {{ recipes_count }}</p>
+                            <a href="{% url 'profile edit' request.user.id %}" class="btn btn-md btn-secondary">Edit</a>
+                            <a href="{% url 'change password' request.user.id %}" class="btn btn-md btn-secondary">Change
+                                Password</a>
+                            <a href="{% url 'profile delete' request.user.id %}"
+                               class="btn btn-md btn-warning">Delete</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

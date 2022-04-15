@@ -1,0 +1,38 @@
+{% extends 'base/base.html' %}
+{% block start %}
+    <body>
+
+    {% if object_list %}
+        <h1>All Ingredients</h1>
+    {% else %}
+        <h1>No Ingredients</h1>
+    {% endif %}
+    <a href="{% url 'ingredient create' %}">Add Ingredient</a>
+    {% if object_list %}
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>Name</th>
+                <th>Price in Leva</th>
+                <th>For</th>
+                <th></th>
+                <th></th>
+            </tr>
+            </thead>
+            <br>
+            <hr>
+            <tbody>
+            {% for ingredient in object_list %}
+                <tr>
+                    <td>{{ ingredient.name }}</td>
+                    <td>{{ ingredient.price_per_type }}</td>
+                    <td>{{ ingredient.type }}</td>
+                    <td><a href="{% url 'ingredient edit' ingredient.id %}">Edit</a></td>
+                    <td><a href="{% url 'ingredient delete' ingredient.id %}">Delete</a></td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    {% endif %}
+    </body>
+{% endblock %}

@@ -1,0 +1,39 @@
+{#{% extends 'base/base.html' %}#}
+{#{% block start %}#}
+{#    <div>#}
+{#        <form action="{% url 'register' %}" method="POST">#}
+{#            {% csrf_token %}#}
+{#            {{ form }}#}
+{#            <input type="submit">#}
+{#        </form>#}
+{#    </div>#}
+{#{% endblock %}#}
+
+
+{% extends 'base/base.html' %}
+{% block start %}
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div class="col-md">
+                    <div class="card text-center text-black  mb-3" id="">
+                        <div class="card-header">
+                            <h1 class="card-title">Registration</h1>
+                        </div>
+                        <div class="card-body">
+                            <form action="{% url 'register' %}" method="POST">
+                                <div class="form-group">
+                                    {% csrf_token %}
+                                    {{ form }}
+                                    <div class="card-footer"><input class="btn btn-sm btn-secondary" type="submit"
+                                                                    value="Submit"></div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+

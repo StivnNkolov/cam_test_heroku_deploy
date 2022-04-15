@@ -1,0 +1,68 @@
+{% extends 'base/base.html' %}
+{% block start %}
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div class="col-md">
+                    <div class="card text-center text-black  mb-3" id="">
+                        <div class="card-header">
+                            <h2 class="card-title">{% if object_list %}All Ingredients {% else %} No
+                                Ingredients{% endif %}</h2>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title"><a class="btn btn-sm btn-secondary"
+                                                      href="{% url 'ingredient create' %}">Add
+                                Ingredient</a></h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col">
+                <div class="card card-body">
+                    <form method="get">
+
+                        {{ ingredient_filter.form }}
+
+                        <button class="btn btn-secondary" type="submit">Search</button>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+        <br>
+
+        <div class="row">
+            <div class="col-md">
+                <div class="card card-body">
+                    <table class="table table-sm table-striped">
+                        <tr>
+                            <th>Name</th>
+                            <th>Price in Leva</th>
+                            <th>For</th>
+                            <th></th>
+                            <th></th>
+                        </tr>
+                        {% for ingredient in object_list %}
+                            <tr>
+                                <td>{{ ingredient.name }}</td>
+                                <td>{{ ingredient.price_per_type }}</td>
+                                <td>{{ ingredient.type }}</td>
+                                <td><a class="btn btn-sm btn-secondary"
+                                       href="{% url 'ingredient edit' ingredient.id %}">Edit</a>
+                                </td>
+                                <td><a class="btn btn-sm btn-warning"
+                                       href="{% url 'ingredient delete' ingredient.id %}">Delete</a>
+                                </td>
+                            </tr>
+                        {% endfor %}
+
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

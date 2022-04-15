@@ -1,0 +1,11 @@
+{% extends 'base/base.html' %}
+{% block start %}
+    <body>
+    <h3>Edit ingredient amount</h3>
+    <form action="{% url 'recipe ingredient edit' object.id %}" method="post">
+        {{ form }}
+        {% csrf_token %}
+        <input type="submit" name="" id="">
+    </form>
+    </body>
+{% endblock %}

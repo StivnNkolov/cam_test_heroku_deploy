@@ -1,0 +1,28 @@
+{% extends 'base/base.html' %}
+{% block start %}
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div class="col-md">
+                    <div class="card text-center text-black  mb-3" id="">
+                        <div class="card-header">
+                            <h2 class="card-title">Are you sure you want to delete your profile?</h2>
+                        </div>
+                        <div class="card-body">
+                            <form action="{% url 'profile delete' request.user.id %}" method="POST">
+                                {{ form }}
+                                {% csrf_token %}
+                                <input class="btn btn-md btn-secondary" type="submit" value="Delete">
+                                <a class="btn btn-md btn-warning" href="{% url 'profile details' request.user.id %}">Go back</a>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
+
+
+

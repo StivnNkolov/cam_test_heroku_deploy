@@ -1,0 +1,75 @@
+{% extends 'base/base.html' %}
+{% block start %}
+
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div class="col-md">
+                    <div class="card text-center text-black  mb-3" id="">
+                        <div class="card-header">
+                            <h2 class="card-title">{% if object_list %}All Recipes {% else %} No
+                                Recipes{% endif %}</h2>
+                        </div>
+                        <div class="card-body">
+                            <a class="btn btn-sm btn-secondary" href="{% url 'recipe create' %}">Add
+                                Recipe</a>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <br>
+        <div class="row">
+            <div class="col">
+                <div class="card card-body">
+                    <form method="get">
+
+                        {{ recipe_filter.form }}
+
+                        <button class="btn btn-secondary" type="submit">Search</button>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+        <br>
+
+        <div class="row">
+            <div class="col-md">
+                <div class="card card-body">
+                    <table class="table table-sm table-striped">
+                        <tr>
+                            <th>Name</th>
+                            <th>Raw price</th>
+                            <th>Increase percentage</th>
+                            <th>Price after increase</th>
+                            <th></th>
+                            <th></th>
+                            <th></th>
+                        </tr>
+                        {% for recipe in object_list %}
+                            <tr>
+                                <td>{{ recipe.name }}</td>
+                                <td>{{ recipe.price }} Leva</td>
+                                <td>{{ recipe.increasepercentage.percentage }}%</td>
+                                <td>{{ recipe.increased_price }} Leva</td>
+                                <td><a class="btn btn-sm btn-secondary"
+                                       href="{% url 'recipe details' recipe.id %}">Details</a></td>
+                                <td><a class="btn btn-sm btn-secondary"
+                                       href="{% url 'recipe add as ingredient' recipe.id %}">Add as ingredient</a></td>
+                                <td><a class="btn btn-sm btn-warning"
+                                       href="{% url 'recipe delete' recipe.id %}">Delete</a>
+                                </td>
+                            </tr>
+                        {% endfor %}
+
+                    </table>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+{% endblock %}

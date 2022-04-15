@@ -1,0 +1,42 @@
+{% extends 'base/base.html' %}
+{% block start %}
+    {# TODO to make some template tag or filter dont remember for the table? #}
+    <body>
+    {% if object_list %}
+        <h1>All Recipes</h1>
+    {% else %}
+        <h1>No Recipes</h1>
+    {% endif %}
+    <a href="{% url 'recipe create' %}">Add Recipe</a>
+    {% if object_list %}
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>Name</th>
+                <th>Raw price</th>
+                <th>Increase percentage</th>
+                <th>Price after increase</th>
+                <th></th>
+                <th></th>
+                <th></th>
+            </tr>
+            </thead>
+            <br>
+            <hr>
+            <tbody>
+            {% for recipe in object_list %}
+                <tr>
+                    <td>{{ recipe.name }}</td>
+                    <td>{{ recipe.price }} Leva</td>
+                    <td>{{ recipe.increasepercentage.percentage }}%</td>
+                    <td>{{ recipe.increased_price }} Leva</td>
+                    <td><a href="{% url 'recipe details' recipe.id %}">Details</a></td>
+                    <td><a href="{% url 'recipe add as ingredient' recipe.id %}">Add as ingredient</a></td>
+                    <td><a href="{% url 'recipe delete' recipe.id %}">Delete</a></td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    {% endif %}
+    </body>
+{% endblock %}

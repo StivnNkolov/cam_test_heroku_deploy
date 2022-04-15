@@ -1,0 +1,38 @@
+{% extends 'base/base.html' %}
+{% block start %}
+    {#    <div>#}
+    {#        <form action="{% url 'profile edit' request.user.id %}" method="POST">#}
+    {#            {% csrf_token %}#}
+    {#            {{ form }}#}
+    {#            <input type="submit">#}
+    {#        </form>#}
+    {#    </div>#}
+
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div class="col-md">
+                    <div class="card text-center text-black  mb-3" id="">
+                        <div class="card-header">
+                            <h1 class="card-title">Edit profile</h1>
+                        </div>
+                        <div class="card-body">
+                            <form action="{% url 'profile edit' request.user.id %}" method="POST">
+                                <div class="form-group">
+                                    {% csrf_token %}
+                                    {{ form }}
+                                    <div class="card-footer"><input class="btn btn-sm btn-secondary" type="submit"
+                                                                    value="Submit"></div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
+
+
+

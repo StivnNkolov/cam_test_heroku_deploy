@@ -1,0 +1,26 @@
+{% extends 'base/base.html' %}
+{% block start %}
+
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div class="col-md">
+                    <div class="card text-center text-black  mb-3" id="">
+                        <div class="card-header">
+                            <h2 class="card-title">Add Ingredient</h2>
+                        </div>
+                        <div class="card-body">
+                            <form action="{% url 'recipe ingredient create' recipe.id %}" method="POST">
+                                {{ form }}
+                                {% csrf_token %}
+                                <input type="submit" name="" id="">
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+{% endblock %}

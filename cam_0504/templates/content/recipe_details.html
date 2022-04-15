@@ -1,0 +1,53 @@
+{% extends 'base/base.html' %}
+{% block start %}
+    <body>
+    <h3>Recipe name: {{ recipe.name }}.</h3>
+    <br>
+    <a href="{% url 'recipe finalise' recipe.id %}">Finalise Recipe</a>
+    <a href="{% url 'recipe ingredient create' recipe.id %}">Add Ingredient</a>
+    <a href="{% url 'recipe increase price percentage' recipe.increasepercentage.id %}">Increase raw price</a>
+    <a href="{% url 'recipes list' %}">Go back</a>
+    <br>
+    <div>
+    </div>
+    <br>
+    <hr>
+    <div>
+        <h4>Recipe Price</h4>
+        <h5>Raw price: {{ recipe.price }}. Increase percentage: {{ recipe.increasepercentage.percentage }}. Price after
+            increase: {% if recipe.increasepercentage.percentage == 0 %}{{ recipe.price }} {% else %}
+                {{ recipe.increased_price }}{% endif %}</h5>
+    </div>
+    <br>
+    <hr>
+    <div>
+        <h4>All Ingredients</h4>
+        {% if recipe.recipeingredient_set.all %}
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Amount in grams/piece</th>
+                    {#                    <th>For</th>#}
+                    <th></th>
+                    <th></th>
+                </tr>
+                </thead>
+                <br>
+                <hr>
+                <tbody>
+                {% for ingredient in recipe.recipeingredient_set.all %}
+                    <tr>
+                        <td>{{ ingredient.ingredient.name }}</td>
+                        <td>{{ ingredient.amount }}</td>
+                        {#                        <td>{{ ingredient.ingredient.type }}</td>#}
+                        <td><a href="{% url 'recipe ingredient edit' ingredient.id %}">Change amount</a></td>
+                        <td><a href="{% url 'recipe ingredient delete' ingredient.id %}">Remove</a></td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        {% endif %}
+    </div>
+    </body>
+{% endblock %}
