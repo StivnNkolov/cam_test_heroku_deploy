@@ -8,7 +8,10 @@ SECRET_KEY = 'django-insecure-8sszjd)o10oke+y)vek9w$_f0s$phrt_tjv)p966v15+vxi@+d
 
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    '127.0.0.1',
+    'cook-and-math.herokuapp.com',
+]
 
 BUILD_IN_APPS = [
     'django.contrib.admin',
