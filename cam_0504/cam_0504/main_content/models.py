@@ -8,7 +8,7 @@ UserModel = get_user_model()
 
 
 class Ingredient(models.Model):
-    REGEX_PATTERN = '(?<![\s\W\D])^([a-zA-Z0-9]+[\s]?[a-zA-Z0-9]+)+$(?![\s\W\D])'
+    REGEX_PATTERN = '(?<![\s\W\D])^([a-zA-Zа-яА-Я0-9]+[\s]?[a-zA-Zа-яА-Я0-9]+)+$(?![\s\W\D])'
 
     NAME_MAX_LEN = 30
     NAME_VERBOSE_NAME = 'Name'
@@ -78,7 +78,7 @@ class Recipe(models.Model):
     PRICE_MD = 6
     PRICE_DP = 3
 
-    REGEX_PATTERN = '(?<![\s\W\D])^([a-zA-Z0-9]+[\s]?[a-zA-Z0-9]+)+$(?![\s\W\D])'
+    REGEX_PATTERN = '(?<![\s\W\D])^([a-zA-Zа-яА-Я0-9]+[\s]?[a-zA-Zа-яА-Я0-9]+)+$(?![\s\W\D])'
 
     name = models.CharField(
         max_length=NAME_MAX_LENGTH,
