@@ -11,16 +11,16 @@ class Ingredient(models.Model):
     REGEX_PATTERN = '(?<![\s\W\D])^([a-zA-Zа-яА-Я0-9]+[\s]?[a-zA-Zа-яА-Я0-9]+)+$(?![\s\W\D])'
 
     NAME_MAX_LEN = 30
-    NAME_VERBOSE_NAME = 'Name'
+    NAME_VERBOSE_NAME = 'Име'
     NAME_MIN_LENGTH_VALUE = 2
 
     TYPE_CHOICES = ['Kilogram', 'Liter', 'Piece']
     TYPE_DEFAULT_VALUE = 'Kilogram'
-    TYPE_VERBOSE_NAME = 'For'
+    TYPE_VERBOSE_NAME = 'за'
 
     PRICE_PER_TYPE_MD = 6
     PRICE_PER_TYPE_DP = 3
-    PRICE_PER_TYPE_VERBOSE_NAME = 'Price in leva'
+    PRICE_PER_TYPE_VERBOSE_NAME = 'Цена в лв'
     PRICE_PER_TYPE_MIN_VALUE = 0
 
     CALCULATED_PRICE_MD = 6
@@ -71,7 +71,7 @@ class Ingredient(models.Model):
 
 class Recipe(models.Model):
     NAME_MAX_LENGTH = 120
-    NAME_VERBOSE_NAME = 'Recipe name'
+    NAME_VERBOSE_NAME = 'Име на рецепта'
     NAME_MIN_LENGTH = 2
 
     PRICE_DEFAULT_VALUE = 0
@@ -122,7 +122,7 @@ class Recipe(models.Model):
 
 
 class RecipeIngredient(models.Model):
-    AMOUNT_VERBOSE_NAME = 'Quantity in grams / pieces'
+    AMOUNT_VERBOSE_NAME = 'Количество в гр./бройка'
     AMOUNT_DEFAULT_VALUE = 0
     AMOUNT_MD = 6
     AMOUNT_DP = 2

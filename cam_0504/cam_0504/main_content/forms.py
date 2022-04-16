@@ -135,6 +135,9 @@ class RecipeIngredientCreateForm(forms.ModelForm):
     class Meta:
         model = RecipeIngredient
         fields = ['ingredient', 'amount']
+        labels = {
+            'ingredient': 'Съставка',
+        }
         widgets = {
             'amount': forms.NumberInput(
                 attrs={
