@@ -6,14 +6,14 @@
                 <div class="col-md">
                     <div class="card text-center text-black  mb-3" id="">
                         <div class="card-header">
-                            <h1 class="card-title">Log In</h1>
+                            <h1 class="card-title">Вход</h1>
                         </div>
                         <div class="card-body">
                             <form action="{% url 'log in' %}" method="POST">
                                 <div class="form-group">
                                     {% csrf_token %}
                                     {{ form }}
-                                    <input  class="btn btn-sm btn-secondary" type="submit" value="Sign in">
+                                    <input  class="btn btn-md btn-secondary" type="submit" value="Влез">
                                 </div>
                             </form>
                         </div>

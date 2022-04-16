@@ -6,18 +6,14 @@
                 <div class="col-md">
                     <div class="card text-center text-black mb-3" id="">
                         <div class="card-header">
-                            <h2 class="card-title">Recipe Name: {{ recipe.name }}</h2>
+                            <h2 class="card-title">Рецепта: {{ recipe.name }}</h2>
                         </div>
                         <div class="card-body">
-                            <a class="btn btn-sm btn-secondary" href="{% url 'recipe finalise' recipe.id %}">Finalise
-                                Recipe</a>
-                            <a class="btn btn-sm btn-secondary" href="{% url 'recipe ingredient create' recipe.id %}">Add
-                                Ingredient</a>
-                            <a class="btn btn-sm btn-secondary"
-                               href="{% url 'recipe increase price percentage' recipe.increasepercentage.id %}">Increase
-                                raw
-                                price</a>
-                            <a class="btn btn-sm btn-warning" href="{% url 'recipes list' %}">Go back</a>
+                            <a class="btn btn-md btn-secondary" href="{% url 'recipe finalise' recipe.id %}">Сметни цена</a>
+                            <a class="btn btn-md btn-secondary" href="{% url 'recipe ingredient create' recipe.id %}">Добави съставка</a>
+                            <a class="btn btn-md btn-secondary"
+                               href="{% url 'recipe increase price percentage' recipe.increasepercentage.id %}">Добави надценка</a>
+                            <a class="btn btn-md btn-warning" href="{% url 'recipes list' %}">Назад</a>
                         </div>
                     </div>
                 </div>
@@ -31,10 +27,10 @@
                 <div class="col-md">
                     <div class="card text-center text-black  mb-3" id="total-orders">
                         <div class="card-header">
-                            <h5 class="card-title">Raw price</h5>
+                            <h5 class="card-title">Чиста цена</h5>
                         </div>
                         <div class="card-body">
-                            <h3 class="card-title">{{ recipe.price }}</h3>
+                            <h3 class="card-title">{{ recipe.price }} лв.</h3>
                         </div>
                     </div>
                 </div>
@@ -44,10 +40,10 @@
                 <div class="col-md">
                     <div class="card text-center text-black  mb-3" id="orders-delivered">
                         <div class="card-header">
-                            <h5 class="card-title">Increase Percentage</h5>
+                            <h5 class="card-title">Надценка/процент</h5>
                         </div>
                         <div class="card-body">
-                            <h3 class="card-title">{{ recipe.increasepercentage.percentage }}</h3>
+                            <h3 class="card-title">{{ recipe.increasepercentage.percentage }}%</h3>
                         </div>
                     </div>
                 </div>
@@ -57,10 +53,10 @@
                 <div class="col-md">
                     <div class="card text-center text-vlack  mb-3" id="orders-pending">
                         <div class="card-header">
-                            <h5 class="card-title">Price after Increase</h5>
+                            <h5 class="card-title">Цена след надценка</h5>
                         </div>
                         <div class="card-body">
-                            <h3 class="card-title">{{ recipe.increased_price }}</h3>
+                            <h3 class="card-title">{{ recipe.increased_price }} лв.</h3>
                         </div>
                     </div>
                 </div>
@@ -72,8 +68,8 @@
                 <div class="card card-body">
                     <table class="table table-sm table-striped">
                         <tr>
-                            <th>Name</th>
-                            <th>Amount in grams/piece</th>
+                            <th>Име</th>
+                            <th>Количество гр./бройка</th>
                             <th></th>
                             <th></th>
                         </tr>
@@ -81,10 +77,10 @@
                             <tr>
                                 <td>{{ ingredient.ingredient.name }}</td>
                                 <td>{{ ingredient.amount }}</td>
-                                <td><a class="btn btn-sm btn-secondary"
-                                       href="{% url 'recipe ingredient edit' ingredient.id %}">Change amount</a></td>
-                                <td><a class="btn btn-sm btn-warning"
-                                       href="{% url 'recipe ingredient delete' ingredient.id %}">Remove</a></td>
+                                <td><a class="btn btn-md btn-secondary"
+                                       href="{% url 'recipe ingredient edit' ingredient.id %}">Промени</a></td>
+                                <td><a class="btn btn-md btn-warning"
+                                       href="{% url 'recipe ingredient delete' ingredient.id %}">Премахни</a></td>
                             </tr>
                         {% endfor %}
 

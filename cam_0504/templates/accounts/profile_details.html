@@ -91,37 +91,36 @@
                 <div class="col-md">
                     <div class="card text-center text-black  mb-3" id="">
                         <div class="card-header">
-                            <h1 class="card-title">Profile info</h1>
+                            <h1 class="card-title">Информация за профил</h1>
                         </div>
                         <div class="card-body">
                             <div class="d-flex flex-column">
                                 {% if object.first_name and object.last_name %}
-                                    <h5><u>Name:</u> {{ object.first_name }} {{ object.last_name }}</h5>
+                                    <h5><u>Име:</u> {{ object.first_name }} {{ object.last_name }}</h5>
                                 {% endif %}
                                 <!-- If Date of Birth -->
                                 {% if object.age %}
-                                    <h5><u>Age:</u> {{ object.age }}</h5>
+                                    <h5><u>Възраст:</u> {{ object.age }}</h5>
                                 {% endif %}
                                 <!-- If Email -->
                                 {% if object.city_name %}
-                                    <h5><u>City name:</u> {{ object.city_name }}</h5>
+                                    <h5><u>Град:</u> {{ object.city_name }}</h5>
                                 {% endif %}
                                 <!-- If Gender is Chosen -->
                                 {% if object.email %}
-                                    <h5><u>Email:</u> {{ object.email }}</h5>
+                                    <h5><u>Имейл:</u> {{ object.email }}</h5>
                                 {% endif %}
                                 <!-- If Description -->
                                 {% if object.restaurant_name %}
-                                    <h5><u>Restaurant name:</u> {{ object.restaurant_name }}</h5>
+                                    <h5><u>Ресторант:</u> {{ object.restaurant_name }}</h5>
                                 {% endif %}
                             </div>
-                            <p class="mt-2">Total Products: {{ ingredients_count }}</p>
-                            <p class="mt-2">Total Recipes: {{ recipes_count }}</p>
-                            <a href="{% url 'profile edit' request.user.id %}" class="btn btn-md btn-secondary">Edit</a>
-                            <a href="{% url 'change password' request.user.id %}" class="btn btn-md btn-secondary">Change
-                                Password</a>
+                            <p class="mt-2">Продукти: {{ ingredients_count }}</p>
+                            <p class="mt-2">Рецепти: {{ recipes_count }}</p>
+                            <a href="{% url 'profile edit' request.user.id %}" class="btn btn-md btn-secondary">Промени</a>
+                            <a href="{% url 'change password' request.user.id %}" class="btn btn-md btn-secondary">Смяна на парола</a>
                             <a href="{% url 'profile delete' request.user.id %}"
-                               class="btn btn-md btn-warning">Delete</a>
+                               class="btn btn-md btn-warning">Изтрий</a>
                         </div>
                     </div>
                 </div>

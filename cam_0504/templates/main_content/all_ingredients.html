@@ -6,13 +6,11 @@
                 <div class="col-md">
                     <div class="card text-center text-black  mb-3" id="">
                         <div class="card-header">
-                            <h2 class="card-title">{% if object_list %}All Ingredients {% else %} No
-                                Ingredients{% endif %}</h2>
+                            <h2 class="card-title">{% if object_list %}Всички съставки {% else %} Няма добавени съставки{% endif %}</h2>
                         </div>
                         <div class="card-body">
-                            <h5 class="card-title"><a class="btn btn-sm btn-secondary"
-                                                      href="{% url 'ingredient create' %}">Add
-                                Ingredient</a></h5>
+                            <h5 class="card-title"><a class="btn btn-lg btn-secondary"
+                                                      href="{% url 'ingredient create' %}">Добави съставка</a></h5>
                         </div>
                     </div>
                 </div>
@@ -26,7 +24,7 @@
 
                         {{ ingredient_filter.form }}
 
-                        <button class="btn btn-secondary" type="submit">Search</button>
+                        <button class="btn btn-secondary" type="submit">Търси</button>
                     </form>
                 </div>
             </div>
@@ -39,9 +37,9 @@
                 <div class="card card-body">
                     <table class="table table-sm table-striped">
                         <tr>
-                            <th>Name</th>
-                            <th>Price in Leva</th>
-                            <th>For</th>
+                            <th>Име</th>
+                            <th>Цена в лв.</th>
+                            <th>за</th>
                             <th></th>
                             <th></th>
                         </tr>
@@ -50,11 +48,11 @@
                                 <td>{{ ingredient.name }}</td>
                                 <td>{{ ingredient.price_per_type }}</td>
                                 <td>{{ ingredient.type }}</td>
-                                <td><a class="btn btn-sm btn-secondary"
-                                       href="{% url 'ingredient edit' ingredient.id %}">Edit</a>
+                                <td><a class="btn btn-md btn-secondary"
+                                       href="{% url 'ingredient edit' ingredient.id %}">Промени</a>
                                 </td>
-                                <td><a class="btn btn-sm btn-warning"
-                                       href="{% url 'ingredient delete' ingredient.id %}">Delete</a>
+                                <td><a class="btn btn-md btn-warning"
+                                       href="{% url 'ingredient delete' ingredient.id %}">Изтрий</a>
                                 </td>
                             </tr>
                         {% endfor %}

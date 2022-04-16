@@ -18,15 +18,15 @@
                 <div class="col-md">
                     <div class="card text-center text-black  mb-3" id="">
                         <div class="card-header">
-                            <h1 class="card-title">Registration</h1>
+                            <h1 class="card-title">Регистрация</h1>
                         </div>
                         <div class="card-body">
                             <form action="{% url 'register' %}" method="POST">
                                 <div class="form-group">
                                     {% csrf_token %}
                                     {{ form }}
-                                    <div class="card-footer"><input class="btn btn-sm btn-secondary" type="submit"
-                                                                    value="Submit"></div>
+                                    <div class="card-footer"><input class="btn btn-lg btn-secondary" type="submit"
+                                                                    value="Запази"></div>
                                 </div>
                             </form>
                         </div>

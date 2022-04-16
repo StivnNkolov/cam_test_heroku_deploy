@@ -7,12 +7,10 @@
                 <div class="col-md">
                     <div class="card text-center text-black  mb-3" id="">
                         <div class="card-header">
-                            <h2 class="card-title">{% if object_list %}All Recipes {% else %} No
-                                Recipes{% endif %}</h2>
+                            <h2 class="card-title">{% if object_list %}Всички рецепти {% else %} Нямате рецепти{% endif %}</h2>
                         </div>
                         <div class="card-body">
-                            <a class="btn btn-sm btn-secondary" href="{% url 'recipe create' %}">Add
-                                Recipe</a>
+                            <a class="btn btn-lg btn-secondary" href="{% url 'recipe create' %}">Добави рецепта</a>
 
                         </div>
                     </div>
@@ -28,7 +26,7 @@
 
                         {{ recipe_filter.form }}
 
-                        <button class="btn btn-secondary" type="submit">Search</button>
+                        <button class="btn btn-md btn-secondary" type="submit">Търси</button>
                     </form>
                 </div>
             </div>
@@ -41,10 +39,10 @@
                 <div class="card card-body">
                     <table class="table table-sm table-striped">
                         <tr>
-                            <th>Name</th>
-                            <th>Raw price</th>
-                            <th>Increase percentage</th>
-                            <th>Price after increase</th>
+                            <th>Име</th>
+                            <th>Чиста цена</th>
+                            <th>Надценка/процент</th>
+                            <th>Цена след надценка</th>
                             <th></th>
                             <th></th>
                             <th></th>
@@ -52,15 +50,15 @@
                         {% for recipe in object_list %}
                             <tr>
                                 <td>{{ recipe.name }}</td>
-                                <td>{{ recipe.price }} Leva</td>
+                                <td>{{ recipe.price }} лева</td>
                                 <td>{{ recipe.increasepercentage.percentage }}%</td>
-                                <td>{{ recipe.increased_price }} Leva</td>
-                                <td><a class="btn btn-sm btn-secondary"
-                                       href="{% url 'recipe details' recipe.id %}">Details</a></td>
-                                <td><a class="btn btn-sm btn-secondary"
-                                       href="{% url 'recipe add as ingredient' recipe.id %}">Add as ingredient</a></td>
-                                <td><a class="btn btn-sm btn-warning"
-                                       href="{% url 'recipe delete' recipe.id %}">Delete</a>
+                                <td>{{ recipe.increased_price }} лева</td>
+                                <td><a class="btn btn-md btn-secondary"
+                                       href="{% url 'recipe details' recipe.id %}">Детайли</a></td>
+                                <td><a class="btn btn-md btn-secondary"
+                                       href="{% url 'recipe add as ingredient' recipe.id %}">Като съставка</a></td>
+                                <td><a class="btn btn-md btn-warning"
+                                       href="{% url 'recipe delete' recipe.id %}">Изтрий</a>
                                 </td>
                             </tr>
                         {% endfor %}

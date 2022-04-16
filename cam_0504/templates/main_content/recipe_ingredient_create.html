@@ -7,13 +7,13 @@
                 <div class="col-md">
                     <div class="card text-center text-black  mb-3" id="">
                         <div class="card-header">
-                            <h2 class="card-title">Add Ingredient</h2>
+                            <h2 class="card-title">Добави съставка</h2>
                         </div>
                         <div class="card-body">
                             <form action="{% url 'recipe ingredient create' recipe.id %}" method="POST">
                                 {{ form }}
                                 {% csrf_token %}
-                                <input type="submit" name="" id="">
+                                <input class="btn btn-md btn-secondary" type="submit" name="" id="" value="Добави">
                             </form>
                         </div>
                     </div>

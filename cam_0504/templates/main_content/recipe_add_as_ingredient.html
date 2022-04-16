@@ -8,13 +8,13 @@
                 <div class="col-md">
                     <div class="card text-center text-black  mb-3" id="">
                         <div class="card-header">
-                            <h2 class="card-title">Add recipe as ingredient</h2>
+                            <h2 class="card-title">Добави рецепта, като съставка</h2>
                         </div>
                         <div class="card-body">
                             <form action="{% url 'ingredient create' %}" method="post">
                                 {{ form }}
                                 {% csrf_token %}
-                                <input type="submit" name="" id="">
+                                <input class="btn btn-md btn-secondary" value="Добави" type="submit" name="" id="">
                             </form>
                         </div>
                     </div>

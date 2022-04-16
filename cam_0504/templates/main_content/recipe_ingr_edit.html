@@ -7,13 +7,14 @@
                 <div class="col-md">
                     <div class="card text-center text-black  mb-3" id="">
                         <div class="card-header">
-                            <h2 class="card-title">Edit ingredient amount</h2>
+                            <h2 class="card-title">Промени количество</h2>
                         </div>
                         <div class="card-body">
                             <form action="{% url 'recipe ingredient edit' object.id %}" method="post">
                                 {{ form }}
                                 {% csrf_token %}
-                                <input type="submit" name="" id="">
+                                <input class="btn btn-md btn-secondary" value="Запази" type="submit" name="" id="">
+{#                                <a class="btn btn-md btn-secondary" href="{% url 'recipe details' object.id %}">Назад</a>#}
                             </form>
                         </div>
                     </div>

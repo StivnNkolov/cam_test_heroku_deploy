@@ -9,23 +9,23 @@
             <ul class="navbar-nav">
                 {% if request.user.is_authenticated %}
                     <li class="nav-item">
-                        <a class="nav-link" href="{% url 'ingredients list' %}">Ingredients</a>
+                        <a class="nav-link" href="{% url 'ingredients list' %}">Съставки</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{% url 'recipes list' %}">Recipes</a>
+                        <a class="nav-link" href="{% url 'recipes list' %}">Рецепти</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{% url 'profile details' request.user.id %}">Profile</a>
+                        <a class="nav-link" href="{% url 'profile details' request.user.id %}">Профил</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+                        <a class="nav-link" href="{% url 'logout' %}">Излез</a>
                     </li>
                 {% else %}
                     <li class="nav-item">
-                        <a class="nav-link" href="{% url 'log in' %}">Log in</a>
+                        <a class="nav-link" href="{% url 'log in' %}">Вход</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{% url 'register' %}">Register</a>
+                        <a class="nav-link" href="{% url 'register' %}">Регистрация</a>
                     </li>
                 {% endif %}
 

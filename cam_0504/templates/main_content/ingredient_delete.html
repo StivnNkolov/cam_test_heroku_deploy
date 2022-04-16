@@ -8,14 +8,14 @@
                 <div class="col-md">
                     <div class="card text-center text-black  mb-3" id="">
                         <div class="card-header">
-                            <h2 class="card-title">Are you sure you want to delete: {{ object.name }}</h2>
+                            <h2 class="card-title">Изтриване на {{ object.name }}</h2>
                         </div>
                         <div class="card-body">
                             <form action="{% url 'ingredient delete' object.id %}" method="post">
                                 {{ form }}
                                 {% csrf_token %}
-                                <input class="btn btn-sm btn-secondary" type="submit" value="Delete">
-                                <a class="btn btn-sm btn-warning" href="{% url 'recipes list' %}">Go Back</a>
+                                <a class="btn btn-lg btn-secondary" href="{% url 'recipes list' %}">Назад</a>
+                                <input class="btn btn-lg btn-warning" type="submit" value="Изтрий">
                             </form>
                         </div>
                     </div>
